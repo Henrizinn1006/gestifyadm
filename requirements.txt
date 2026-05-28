@@ -1,0 +1,26 @@
+# ══════════════════════════════════════════════════════
+# Gestify — Dependências Python
+# Versão: 1.0 Local (SQLite) + Lion AI
+#
+# Instalação:
+#   pip install -r requirements.txt
+#
+# Para migração futura:
+#   PostgreSQL: pip install psycopg2-binary
+#   MySQL:      pip install pymysql
+# ══════════════════════════════════════════════════════
+
+# Framework web — puro Python, sem Rust, compatível com Python 3.14
+flask==3.0.3
+
+# ORM e banco de dados
+sqlalchemy==2.0.36
+
+# HTTP client (Lion AI — chamadas diretas à OpenAI sem SDK)
+httpx==0.27.2
+
+# Variáveis de ambiente (.env)
+python-dotenv==1.0.1
+
+# Servidor WSGI para produção (Render / Railway / etc.)
+gunicorn==22.0.0

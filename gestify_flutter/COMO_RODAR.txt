@@ -1,0 +1,46 @@
+═══════════════════════════════════════════════════════════
+  GESTIFY FLUTTER — Como rodar no Android
+═══════════════════════════════════════════════════════════
+
+PRÉ-REQUISITOS
+──────────────
+1. Flutter SDK instalado: https://flutter.dev/docs/get-started/install/windows
+2. Android Studio instalado (para o emulador ou ADB)
+3. Backend Gestify (Flask) rodando: python run.py
+
+CONFIGURAR IP DO BACKEND
+─────────────────────────
+• No emulador Android: use http://10.0.2.2:8000 (já é o padrão)
+• No celular físico via Wi-Fi:
+  1. No PC, abra o Prompt de Comando e rode: ipconfig
+  2. Anote o IPv4 (ex: 192.168.1.105)
+  3. No app, vá em Configurações (⚙) e troque para: http://192.168.1.105:8000
+  4. O PC e o celular precisam estar na MESMA rede Wi-Fi
+
+RODAR O APP
+────────────
+1. Abra o terminal nesta pasta (gestify_flutter)
+2. Execute:
+     flutter pub get
+     flutter run
+   
+   Ou para gerar o APK:
+     flutter build apk --release
+   
+   O APK ficará em: build/app/outputs/flutter-apk/app-release.apk
+
+INSTALAR O APK NO CELULAR
+──────────────────────────
+1. Copie o app-release.apk para o celular
+2. Ative "Instalar apps desconhecidos" nas configurações do Android
+3. Abra o APK e instale
+
+IMPORTANTE — Liberar o Flask para a rede
+─────────────────────────────────────────
+No PC, o Flask precisa aceitar conexões de outros dispositivos.
+Edite o run.py e garanta que está assim:
+  app.run(host='0.0.0.0', port=8000, debug=True)
+
+O host='0.0.0.0' é essencial para o celular conseguir acessar.
+
+═══════════════════════════════════════════════════════════

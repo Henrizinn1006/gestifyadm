@@ -1,0 +1,39 @@
+# Ambiente virtual
+venv/
+.venv/
+env/
+
+# Banco de dados local
+*.db
+*.sqlite3
+
+# Variáveis de ambiente / segredos
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Flutter build artifacts
+gestify_flutter/build/
+gestify_flutter/.dart_tool/
+gestify_flutter/.flutter-plugins
+gestify_flutter/.flutter-plugins-dependencies
