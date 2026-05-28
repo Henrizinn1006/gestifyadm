@@ -12,8 +12,11 @@ from sqlalchemy.orm import sessionmaker
 import os
 
 # ─── Configuração do banco ───────────────────────────────────────────────────
-# SQLite local — arquivo criado automaticamente na raiz do projeto
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./gestify.db")
+
+# Render fornece URLs com prefixo "postgres://" mas SQLAlchemy 2.x exige "postgresql://"
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
 # connect_args apenas necessário para SQLite (multithreading)
 connect_args = {"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {}
