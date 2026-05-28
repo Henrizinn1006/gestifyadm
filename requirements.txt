@@ -24,3 +24,6 @@ python-dotenv==1.0.1
 
 # Servidor WSGI para produção (Render / Railway / etc.)
 gunicorn==22.0.0
+
+# PostgreSQL (produção no Render)
+psycopg2-binary==2.9.9
