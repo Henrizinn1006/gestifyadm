@@ -12,7 +12,9 @@ from sqlalchemy.orm import sessionmaker
 import os
 
 # ─── Configuração do banco ───────────────────────────────────────────────────
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./gestify.db")
+_BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+_DEFAULT_DB = f"sqlite:///{os.path.join(_BASE_DIR, 'gestify.db')}"
+DATABASE_URL = os.getenv("DATABASE_URL", _DEFAULT_DB)
 
 # Render fornece URLs com prefixo "postgres://" mas SQLAlchemy 2.x exige "postgresql://"
 if DATABASE_URL.startswith("postgres://"):
@@ -29,7 +31,6 @@ engine = create_engine(
 
 # Fábrica de sessões
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
 # Base declarativa para todos os modelos
 Base = declarative_base()
 
