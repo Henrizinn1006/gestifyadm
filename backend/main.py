@@ -7,6 +7,7 @@ Como rodar (a partir da pasta gestifyadm/):
 
 import os
 from flask import Flask, send_from_directory, jsonify
+from flask_cors import CORS
 
 # Carrega variáveis do .env antes de qualquer outra coisa
 from dotenv import load_dotenv
@@ -22,6 +23,7 @@ FRONTEND_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "fronten
 
 app = Flask(__name__, static_folder=None)  # desabilita o /static/ interno do Flask
 app.url_map.strict_slashes = False  # /clientes == /clientes/
+CORS(app)  # habilita CORS para todos os endpoints
 
 # ── Registrar blueprints (routers) ───────────────────────────────────────────
 from .routers.clientes    import bp as clientes_bp
