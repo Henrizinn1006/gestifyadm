@@ -27,3 +27,6 @@ gunicorn==22.0.0
 
 # PostgreSQL (produção no Render)
 psycopg2-binary==2.9.9
+
+# CORS — permite que o app Flutter e o browser acessem a API
+flask-cors==4.0.1
